@@ -1,0 +1,9 @@
+version: "2.1"
+services:
+  jekyll:
+    image: jekyll/jekyll:pages
+    volumes:
+      - .:/srv/jekyll
+    command: ['jekyll', 'serve', '--watch']
+    environment:
+      VERBOSE: 'true'
