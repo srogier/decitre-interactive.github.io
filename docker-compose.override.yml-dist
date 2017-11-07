@@ -1,0 +1,5 @@
+version: "2.1"
+services:
+  jekyll:
+    ports:
+      - 4002:4000
