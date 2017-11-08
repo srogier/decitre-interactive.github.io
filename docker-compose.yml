@@ -7,3 +7,12 @@ services:
     command: ['jekyll', 'serve', '--watch']
     environment:
       VERBOSE: 'true'
+
+  php:
+    build:
+      context: ./docker/conf/php
+      args:
+        uid: "${CURRENT_UID:-1000}"
+        gid: "${CURRENT_GID:-1000}"
+    volumes:
+      - .:/srv/jekyll

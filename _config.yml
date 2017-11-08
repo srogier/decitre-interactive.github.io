@@ -15,3 +15,10 @@ highlighter: rouge
 
 plugins:
   - jekyll-feed
+
+exclude:
+ - docker-compose.*
+ - docker
+ - tools
+ - README.md
+ - Makefile
