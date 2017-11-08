@@ -1,0 +1,19 @@
+$footer-height: 150px;
+
+html {
+  position: relative;
+}
+.footer {
+  bottom: 0;
+  width: 100%;
+  background-color: $gray-color;
+  color: $gray-color-darker;
+  a {
+    color: inherit;
+  }
+  ul {
+    font-size: 2rem;
+  }
+
+
+}
