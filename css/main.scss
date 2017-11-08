@@ -10,7 +10,8 @@ $base-color-dark: #d20014 !default;
 $base-color-darker: #AF0014 !default;
 
 
-$text-color: #333 !default;
+$text-color: #212529 !default;
+$text-meta-color: #666 !default;
 $color-link: $base-color-dark !default;
 $color-link-hover: $base-color-darker !default;
 
@@ -22,5 +23,6 @@ $base-font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   "base",
   "header",
   "home",
+  "post",
   "post_link_list"
 ;

@@ -5,9 +5,15 @@ main_css_classname: homepage
 
 <div class="home">
 
-    <ul class="post-link-list list-unstyled mt-5">
+    <ul class="post-link-list list-unstyled">
         {% for post in site.posts %}
+        {% assign author = site.data.authors[post.author] %}
+
         <li class="post-link-item">
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+                <h2 class="post-link-item--title">{{ post.title }}</h2>
+            </a>
+
             <span class="post-link-item--meta">Publié le {{ post.date | date: '%d' }}
                 {% assign m = post.date | date: "%-m" %}
                 {% case m %}
@@ -27,10 +33,7 @@ main_css_classname: homepage
 
                 {{ post.date | date: '%Y' }}
 
-                par {{ post.author}}</span>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="post-link-item--title">{{ post.title }}</h2>
-            </a>
+                par {{ author.name}}</span>
         </li>
         {% endfor %}
     </ul>

@@ -1,3 +1,7 @@
 .post-link-item {
   margin-bottom: 4rem;
+
+  &--meta {
+    color: $text-meta-color;
+  }
 }

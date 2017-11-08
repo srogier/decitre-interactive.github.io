@@ -1,14 +1,52 @@
 ---
 layout: default
 ---
+
+{% assign author = site.data.authors[page.author] %}
 <article class="post">
 
-    <header class="post--header">
+    <div class="post--header mb-5">
         <h1 class="post--title">{{ page.title }}</h1>
-        <p class="post--meta">{{ page.date | date: "%d/%m/%Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-    </header>
 
-    <article class="post-content">
+        <p class="post--meta">
+            {% if author.gravatar %}
+            <img
+                src="https://www.gravatar.com/avatar/{{author.gravatar}}.png?s=50"
+                alt="{{ author.name }}"
+                class="post--author-avatar rounded-circle"
+            />
+            {% endif %}
+
+            Par
+            <span class="post--author">
+                {{ author.name}},
+            </span>
+
+            le {{ page.date | date: '%d' }}
+            {% assign m = page.date | date: "%-m" %}
+            {% case m %}
+            {% when '1' %}Janvier
+            {% when '2' %}Février
+            {% when '3' %}Mars
+            {% when '4' %}Avril
+            {% when '5' %}Mai
+            {% when '6' %}Juin
+            {% when '7' %}Juillet
+            {% when '8' %}Août
+            {% when '9' %}Septembre
+            {% when '10' %}Octobre
+            {% when '11' %}Novembre
+            {% when '12' %}Décembre
+            {% endcase %}
+
+            {{ page.date | date: '%Y' }}
+        </p>
+
+    </div>
+
+
+
+    <article class="post--content">
         {{ content }}
     </article>
 
