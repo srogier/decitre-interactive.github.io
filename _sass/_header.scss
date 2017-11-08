@@ -3,10 +3,26 @@
     font-weight: bold;
     color: $text-color;
   }
+  border-bottom: 1px solid $base-color-dark;
 }
 
 .page-header {
-  background-image: url('/assets/header-decitre.jpg');
+  padding-bottom: 75px;
+  display: none;
+  @media (min-width: 576px) {
+    display: block;
+    padding-bottom: 150px;
+    background-image: url('/assets/header-decitre--sm.jpg');
+  }
+
+  @media (min-width: 768px) {
+    padding-bottom: 200px;
+    background-image: url('/assets/header-decitre--lg.jpg');
+  }
+
+  @media (min-width: 992px) {
+    padding-bottom: 300px;
+    background-image: url('/assets/header-decitre.jpg');
+  }
   background-position: center center;
-  padding-bottom: 300px;
 }
