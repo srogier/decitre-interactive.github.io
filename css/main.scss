@@ -1,0 +1,26 @@
+---
+---
+
+@charset "utf-8";
+
+
+// palettes générées avec https://color.adobe.com/fr/
+$base-color: #E2001A !default;
+$base-color-dark: #d20014 !default;
+$base-color-darker: #AF0014 !default;
+
+
+$text-color: #333 !default;
+$color-link: $base-color-dark !default;
+$color-link-hover: $base-color-darker !default;
+
+$base-font-family: 'Open Sans', sans-serif;;
+
+
+
+@import
+  "base",
+  "header",
+  "home",
+  "post_link_list"
+;
