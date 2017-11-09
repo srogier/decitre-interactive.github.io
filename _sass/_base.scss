@@ -9,3 +9,7 @@ a {
     color: $color-link-hover;
   }
 }
+
+img.lozad:not([data-loaded]) {
+  filter: blur(10px);
+}

@@ -39,15 +39,25 @@ foreach ($ratios as $ratio) {
 
 list($outputWidth, $outputHeight) = getimagesize($imagesByRatio[1]);
 
+$imageLight = $source->resize(array(
+    "method" => "fit",
+    "width" => 30,
+    "height" => 30,
+));
+
 $outputImage = <<<HTML
 
 <!--- code à copier dans le blog post -->
-
-<picture>
-    <source srcset="/%ratio_2% 2x">
-    <img src="/%ratio_1%" width="%width%" height="%height%">
-</picture>
-
+<figure>
+    <img 
+        class="lozad" 
+        width="%width%" height="%height%"
+        src="data:image;base64,%base64_light%"
+        data-src="/%ratio_1%" 
+        data-srcset="/%ratio_1% 1x, /%ratio_2% 2x" 
+    />
+    <figcaption>Légende à remplir</figcaption>
+</figure>
 <!--- fin -->
 
 HTML;
@@ -57,4 +67,5 @@ echo strtr($outputImage, [
     '%ratio_2%' => $imagesByRatio[2],
     '%width%' => $outputWidth,
     '%height%' => $outputHeight,
+    '%base64_light%' => base64_encode($imageLight->toBuffer()),
 ]);
