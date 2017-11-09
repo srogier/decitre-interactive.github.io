@@ -14,11 +14,13 @@ if (!file_exists($image)) {
     echo "L'image $image n'existe pas \n";
 }
 
-\Tinify\setKey($_ENV['TINYPNG_API_KEY']);
+\Tinify\setKey(getenv('TINYPNG_API_KEY'));
 $source = \Tinify\fromFile($image);
 
-list($basename, $extension) = explode('.', basename($image));
-$dirname = dirname($image);
+$imageInfo = pathinfo($image);
+$basename = $imageInfo['filename'];
+$extension = $imageInfo['extension'];
+$dirname = $imageInfo['dirname'];
 
 $imagesByRatio = [];
 $ratios = [1,2];
