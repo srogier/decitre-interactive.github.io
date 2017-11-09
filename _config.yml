@@ -1,7 +1,7 @@
 title: Blog technique de Decitre
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Le blog des équipes technique de Decitre
+  Le blog des équipes techniques de Decitre
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://tech.decitre.fr"
 twitter_username: Decitre
