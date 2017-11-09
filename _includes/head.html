@@ -4,13 +4,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="{{ site.description }}">
+
+    <meta name="author" content="{{ site.author }}" />
+    <meta name="description" content="{{ site.description }}" />
+
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:image" content="{% if img_src %}{{ img_src }}{% else %}{{ site.icon | prepend: site.baseurl | prepend: site.url }}{% endif %}">
+
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:site_name" content="{{ site.name }}">
+
+    {% if page.last_modified_at %}
+    <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
+    {% endif %}
+
+    {% if page.date %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <meta property="article:author" content="https://twitter.com/{{ site.twitter }}">
+    {% endif %}
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="/css/pygments.default.css">
-    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="/css/main.css">
 
-    <link rel="alternate" href="{{ site.baseurl }}/feed.xml" type="application/rss+xml" title="{{ site.data.infos/name }}">
+    <link rel="alternate" href="/feed.xml" type="application/rss+xml" title="{{ site.data.infos/name }}">
 </head>
