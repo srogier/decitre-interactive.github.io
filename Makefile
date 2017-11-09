@@ -1,4 +1,6 @@
 .PHONY: \
+	install \
+	clean \
 	docker-up \
 	docker-build \
 	docker-clean \
@@ -8,6 +10,26 @@
 
 CURRENT_UID=$(shell id -u)
 CURRENT_GID=$(shell id -g)
+
+# installe les dépendances du projet
+install: \
+	composer.phar \
+	tools/vendor \
+
+composer.phar:
+	$(eval EXPECTED_SIGNATURE = "$(shell wget -q -O - https://composer.github.io/installer.sig)")
+	$(eval ACTUAL_SIGNATURE = "$(shell php -r "copy('https://getcomposer.org/installer', 'composer-setup.php'); echo hash_file('SHA384', 'composer-setup.php');")")
+	@if [ "$(EXPECTED_SIGNATURE)" != "$(ACTUAL_SIGNATURE)" ]; then echo "Invalid signature"; exit 1; fi
+	php composer-setup.php
+	rm composer-setup.php
+
+tools/vendor: composer.phar
+	php composer.phar install -d tools
+
+# nettoie les dépendances du projet
+clean:
+	test -f composer.phar && rm composer.phar || true
+	test -d tools/vendor && rm -rf tools/vendor || true
 
 # initialise l'environnement de dev
 docker-build: \

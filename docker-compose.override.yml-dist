@@ -3,3 +3,6 @@ services:
   jekyll:
     ports:
       - 4002:4000
+  php:
+    environment:
+      TINYPNG_API_KEY: key

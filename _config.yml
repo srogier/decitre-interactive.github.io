@@ -22,3 +22,4 @@ exclude:
  - tools
  - README.md
  - Makefile
+ - composer.phar
