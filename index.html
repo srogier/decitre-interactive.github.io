@@ -14,24 +14,7 @@ main_css_classname: homepage
                 <h2 class="post-link-item--title">{{ post.title }}</h2>
             </a>
 
-            <span class="post-link-item--meta">Publié le {{ post.date | date: '%d' }}
-                {% assign m = post.date | date: "%-m" %}
-                {% case m %}
-                  {% when '1' %}Janvier
-                  {% when '2' %}Février
-                  {% when '3' %}Mars
-                  {% when '4' %}Avril
-                  {% when '5' %}Mai
-                  {% when '6' %}Juin
-                  {% when '7' %}Juillet
-                  {% when '8' %}Août
-                  {% when '9' %}Septembre
-                  {% when '10' %}Octobre
-                  {% when '11' %}Novembre
-                  {% when '12' %}Décembre
-                {% endcase %}
-
-                {{ post.date | date: '%Y' }}
+            <span class="post-link-item--meta">Publié le {% include format_date.html date=post.date %}
 
                 par {{ author.name}}</span>
         </li>
