@@ -5,6 +5,9 @@ layout: default
 {% assign author = site.data.authors[page.author] %}
 <article class="post">
 
+a
+    {% include comments.html %}
+b
     <div class="post--header mb-5">
         <h1 class="post--title">{{ page.title }}</h1>
 
@@ -32,5 +35,6 @@ layout: default
     <article class="post--content">
         {{ content }}
     </article>
+
 
 </article>
