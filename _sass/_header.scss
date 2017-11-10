@@ -16,17 +16,17 @@
   @media (min-width: 576px) {
     display: block;
     padding-bottom: 150px;
-    background-image: url('/assets/header-decitre--sm.jpg');
+    background-image: url($baseurl + '/assets/header-decitre--sm.jpg');
   }
 
   @media (min-width: 768px) {
     padding-bottom: 200px;
-    background-image: url('/assets/header-decitre--lg.jpg');
+    background-image: url($baseurl + '/assets/header-decitre--lg.jpg');
   }
 
   @media (min-width: 992px) {
     padding-bottom: 300px;
-    background-image: url('/assets/header-decitre.jpg');
+    background-image: url($baseurl + '/assets/header-decitre.jpg');
   }
   background-position: center center;
 }

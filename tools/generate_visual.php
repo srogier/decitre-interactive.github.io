@@ -55,8 +55,8 @@ $outputImage = <<<HTML
         class="lozad" 
         width="%width%" height="%height%"
         src="data:image;base64,%base64_light%"
-        data-src="/%ratio_1%" 
-        data-srcset="/%ratio_1% 1x, /%ratio_2% 2x" 
+        data-src="{{ '/%ratio_1%' | prepend: site.baseurl  }}" 
+        data-srcset="{{ '/%ratio_1%' | prepend: site.baseurl  }} 1x, {{ '/%ratio_2%' | prepend: site.baseurl  }} 2x" 
     />
     <figcaption>Légende à remplir</figcaption>
 </figure>
