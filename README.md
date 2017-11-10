@@ -4,3 +4,4 @@
 
 `make docker-up`
 
+tech
