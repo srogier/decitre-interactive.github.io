@@ -7,7 +7,7 @@ url: "https://tech.decitre.fr"
 twitter_username: Decitre
 github_username: Decitre-Interactive
 
-comment_repository: Decitre-Interactive/decitre-interactive.github.io
+comment_repository: srogier/decitre-interactive.github.io
 
 # Build settings
 markdown: kramdown
