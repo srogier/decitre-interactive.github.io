@@ -1,0 +1,14 @@
+<section class="post-comments">
+    <h3>Commentaires</h3>
+
+    <h3>Vous voulez réagir ?</h3>
+
+    <form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/{{ site.comment_repository }}/master/comments">
+        <input type="hidden" name="options[redirect]" value="{{ page.url }}#comment-submitted">
+        <input type="hidden" name="options[entryId]" value="{{ page.slug }}">
+        <input name="fields[name]" type="text" class="post-comment-field" placeholder="Votre nom">
+        <input name="fields[email]" type="email" class="post-comment-field" placeholder="Votre adresse email">
+        <textarea name="fields[body]" class="post-comment-field" placeholder="Votre message. " rows="10"></textarea>
+        <input type="submit" class="post-comment-field btn" value="Envoyer">
+    </form>
+</section>
