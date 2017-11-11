@@ -13,3 +13,7 @@ a {
 img.lozad:not([data-loaded]) {
   filter: blur(10px);
 }
+
+.text-muted {
+  color: $gray-color-darker;
+}
