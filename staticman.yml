@@ -21,6 +21,6 @@ comments:
   moderation: false
 
   reCaptcha:
-    enabled: true
+    enabled: false
     siteKey: "6LdnITgUAAAAAKcUC9X_vkUV00HZoL-lRmXBdem3"
     secret: "EdNGgrH2Z49qTXGtXKUt8OE/mGkmxUHA1jGu1MdNSRufaf8VFrX03R6VHK2KUHxxe4Bhp2FCHpfgusT1av1rFjT3v3LN+HCbOpf/9p/Cl+hghw2l+DfZEYK6fc966tM8LL6tS1lwMYAotxFcB4tTenUrGNEpR9hBgHJ+A2+R4VY="
