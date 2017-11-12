@@ -26,27 +26,31 @@
         <input type="submit" class="btn btn-primary" value="Envoyer le commentaire">
     </form>
 
-    <h3>Commentaires</h3>
+    {% assign comments = site.data.comments[page.slug] %}
 
-    {% assign comments = site.data.comments | sort %}
+    <h3>{% if comments.size > 1 %}Commentaires{% else %}Commentaire{% endif %}</h3>
 
-    {% for comment in comments reversed %}
-    {% assign commentData = comment[1] %}
+    {% if comments.size > 0 %}
 
-    <article class="comment">
-        <div class="comment--header">
-            Posté par
-            <a class="comment--username">{{ commentData.name }}</a>
-            le
-            <span class="comment-date">{% include format_date.html date=commentData.date %}</span>
-        </div>
+        {% for comment in comments | sort reversed %}
+        {% assign commentData = comment[1] %}
 
-        <div class="comment--content">
-            {{ commentData.message | markdownify }}
-        </div>
-    </article>
+        <article class="comment">
+            <div class="comment--header">
+                Posté par
+                <a class="comment--username">{{ commentData.name }}</a>
+                le
+                <span class="comment-date">{% include format_date.html date=commentData.date %}</span>
+            </div>
 
-    {% endfor %}
+            <div class="comment--content">
+                {{ commentData.message | markdownify }}
+            </div>
+        </article>
 
+        {% endfor %}
+    {% else %}
+        <div>Il n'y a pas encore de commentaires sur cet article</div>
+    {% endif %}
 
 </section>
