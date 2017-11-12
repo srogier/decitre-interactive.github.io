@@ -37,7 +37,20 @@
 
         <article class="comment">
             <div class="comment--header">
-                Posté par
+
+                {% assign urlGravatar = "https://www.gravatar.com/avatar?s=40" %}
+
+                {% if commentData.email %}
+                    {% assign urlGravatar = "https://www.gravatar.com/avatar/" | append: commentData.email | append: ".png?s=40" %}
+                {% endif %}
+
+                <img
+                    src="{{ urlGravatar }}"
+                    alt="{{ commentData.name }}"
+                    class="rounded-circle"
+                />
+
+                Par
                 <a class="comment--username">{{ commentData.name }}</a>
                 le
                 <span class="comment-date">{% include format_date.html date=commentData.date %}</span>
