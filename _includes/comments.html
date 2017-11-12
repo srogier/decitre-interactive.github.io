@@ -5,7 +5,7 @@
     <form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/{{ site.comment_repository }}/{{site.git_branch}}/comments">
 
         <input type="hidden" name="options[redirect]" value="{{ page.url  | prepend: site.baseurl | prepend: site.url }}#comment-submitted">
-        <input type="hidden" name="options[entryId]" value="{{ page.slug }}">
+        <input type="hidden" name="options[slug]" value="{{ page.slug }}">
 
 
         <div class="form-group">
@@ -38,7 +38,7 @@
             Posté par
             <a class="comment--username">{{ commentData.name }}</a>
             le
-            <span class="comment-date">{% include format_date.html date=page.date %}</span>
+            <span class="comment-date">{% include format_date.html date=commentData.date %}</span>
         </div>
 
         <div class="comment--content">
