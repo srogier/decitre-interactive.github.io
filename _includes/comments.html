@@ -1,6 +1,6 @@
 <section class="post-comments">
 
-    <h3>Laisser un commentaire ?</h3>
+    <h3 class="mt-5">Laisser un commentaire ?</h3>
 
     <form class="post-new-comment" method="POST" action="https://api.staticman.net/v2/entry/{{ site.comment_repository }}/{{site.git_branch}}/comments">
 
@@ -28,14 +28,14 @@
 
     {% assign comments = site.data.comments[page.slug] %}
 
-    <h3>{% if comments.size > 1 %}Commentaires{% else %}Commentaire{% endif %}</h3>
+    <h3 class="mt-5">{% if comments.size > 1 %}Commentaires{% else %}Commentaire{% endif %}</h3>
 
     {% if comments.size > 0 %}
 
         {% for comment in comments | sort reversed %}
         {% assign commentData = comment[1] %}
 
-        <article class="comment">
+        <article class="comment my-2">
             <div class="comment--header">
 
                 {% assign urlGravatar = "https://www.gravatar.com/avatar?s=40" %}
