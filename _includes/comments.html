@@ -6,6 +6,7 @@
 
         <input type="hidden" name="options[redirect]" value="{{ page.url  | prepend: site.baseurl | prepend: site.url }}#comment-submitted">
         <input type="hidden" name="options[slug]" value="{{ page.slug }}">
+        <input type="hidden" name="fields[replying_to]" value="">
 
 
         <div class="form-group">
@@ -26,41 +27,15 @@
         <input type="submit" class="btn btn-primary" value="Envoyer le commentaire">
     </form>
 
-    {% assign comments = site.data.comments[page.slug] %}
+    {% assign comments = site.data.comments[page.slug]  | where:"replying_to","" %}
 
     <h3 class="mt-5">{% if comments.size > 1 %}Commentaires{% else %}Commentaire{% endif %}</h3>
 
     {% if comments.size > 0 %}
 
-        {% for comment in comments | sort reversed %}
+        {% for comment in comments  %}
         {% assign commentData = comment[1] %}
-
-        <article class="comment my-2">
-            <div class="comment--header">
-
-                {% assign urlGravatar = "https://www.gravatar.com/avatar?s=40" %}
-
-                {% if commentData.email %}
-                    {% assign urlGravatar = "https://www.gravatar.com/avatar/" | append: commentData.email | append: ".png?s=40" %}
-                {% endif %}
-
-                <img
-                    src="{{ urlGravatar }}"
-                    alt="{{ commentData.name }}"
-                    class="rounded-circle"
-                />
-
-                Par
-                <a class="comment--username">{{ commentData.name }}</a>
-                le
-                <span class="comment-date">{% include format_date.html date=commentData.date %}</span>
-            </div>
-
-            <div class="comment--content">
-                {{ commentData.message | markdownify }}
-            </div>
-        </article>
-
+            {% include comment.html comment=comment %}
         {% endfor %}
     {% else %}
         <div>Il n'y a pas encore de commentaires sur cet article</div>
