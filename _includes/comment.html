@@ -17,6 +17,8 @@
         <a class="comment--username">{{ include.comment.name }}</a>
         le
         <span class="comment-date">{% include format_date.html date=include.comment.date %}</span>
+
+        <a href="#post-new-comment" class="comment-reply-to-link" data-replying-to-id="{{ include.comment._id }}">Répondre</a>
     </div>
 
     <div class="comment--content">
