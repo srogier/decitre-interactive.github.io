@@ -1,5 +1,5 @@
 comments:
-  allowedFields: ['name', 'email', 'message']
+  allowedFields: ['name', 'email', 'message', 'replying_to']
   requiredFields: ["name", "message"]
 
   branch: "gh-pages"
