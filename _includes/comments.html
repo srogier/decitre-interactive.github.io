@@ -9,7 +9,7 @@
         action="https://api.staticman.net/v2/entry/{{ site.comment_repository }}/{{site.git_branch}}/comments"
     >
 
-        <input type="hidden" name="options[redirect]" value="{{ page.url  | prepend: site.baseurl | prepend: site.url }}#comment-submitted">
+        <input type="hidden" name="options[redirect]" value="{{ page.url  | prepend: site.baseurl }}#comment-submitted">
         <input type="hidden" name="options[slug]" value="{{ page.slug }}">
         <input type="hidden" name="fields[replying_to]" value="">
 
