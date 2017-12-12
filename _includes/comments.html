@@ -29,6 +29,14 @@
             <textarea name="fields[message]" class="form-control" id="comment-message" rows="10"  required="required"></textarea>
         </div>
 
+
+        {% if site.recaptcha_enabled %}
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.recaptcha_site_key }}">
+            <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.recaptcha_staticman_secret }}">
+
+            <div class="g-recaptcha" data-sitekey="{{ site.recaptcha_site_key }}"></div>
+        {% endif %}
+
         <input type="submit" class="btn btn-primary" value="Envoyer le commentaire">
     </form>
 
