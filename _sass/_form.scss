@@ -5,6 +5,24 @@
     background-color: $base-color-dark;
     border-color: $base-color-darker;
   }
+
+  &:active {
+    &,
+    &:not([disabled]):not(.disabled) {
+      background-color: $base-color-dark;
+      border-color: $base-color-darker;
+      box-shadow: 0 0 0 .2rem rgba($base-color-dark,.5);
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 .2rem rgba($base-color,.5);
+  }
+
+  &[disabled] {
+    background-color: $base-color;
+    border-color: $base-color;
+  }
 }
 
 
