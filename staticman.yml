@@ -18,7 +18,7 @@ comments:
   transforms:
     email: md5
 
-  moderation: false
+  moderation: true
 
   reCaptcha:
     enabled: true
