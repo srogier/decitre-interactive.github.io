@@ -22,9 +22,11 @@ $base-font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 
 @import
   "base",
+  "form",
   "header",
   "footer",
   "home",
   "post",
-  "post_link_list"
+  "post_link_list",
+  "comment"
 ;

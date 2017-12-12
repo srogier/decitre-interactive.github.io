@@ -1,0 +1,74 @@
+<section class="post-comments">
+
+    <h3 class="mt-5">Laisser un commentaire ?</h3>
+
+    <form
+        id="post-new-comment"
+        class="post-new-comment"
+        method="POST"
+        action="https://api.staticman.net/v2/entry/{{ site.comment_repository }}/{{site.git_branch}}/comments"
+    >
+
+        <input type="hidden" name="options[slug]" value="{{ page.slug }}">
+        <input type="hidden" name="fields[replying_to]" value="">
+
+        <div class="form-group">
+            <label for="comment-name">Votre nom</label>
+            <input name="fields[name]" type="text" class="form-control" id="comment-name" required="required">
+        </div>
+
+        <div class="form-group">
+            <label for="comment-email">Votre adresse email <small class="text-muted">(facultatif)</small> </label>
+            <input name="fields[email]" type="email" class="form-control" id="comment-email">
+        </div>
+
+        <div class="form-group">
+            <label for="comment-message">Votre message</label>
+            <textarea name="fields[message]" class="form-control" id="comment-message" rows="10"  required="required"></textarea>
+        </div>
+
+
+        {% if site.recaptcha_enabled %}
+            <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.recaptcha_site_key }}">
+            <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.recaptcha_staticman_secret }}">
+
+            <div class="form-group g-recaptcha" data-sitekey="{{ site.recaptcha_site_key }}"></div>
+        {% endif %}
+
+        <div class="form-group">
+            <input type="submit"
+               class="btn btn-primary"
+               value="Envoyer le commentaire"
+               id="comment-form-submit"
+            />
+        </div>
+
+        <div class="comment-form-messages"></div>
+
+        <script type="text/html" id="post-new-comment-message-success">
+            <div class="alert alert-primary">
+                Merci pour votre commentaire ! <br />
+                Il apparaîtra <a href="https://github.com/Decitre-Interactive/decitre-interactive.github.io/pulls?q=is%3Apr+author%3Astaticmanapp" target="_blank">une fois validé</a>.
+            </div>
+        </script>
+
+        <script type="text/html" id="post-new-comment-message-error">
+            <div class="alert alert-danger">Erreur lors de l'envoi du commentaire :( Contactez-nous sur twitter.</div>
+        </script>
+    </form>
+
+    {% assign comments = site.data.comments[page.slug]  | where:"replying_to","" %}
+
+    <h3 class="mt-5">{% if comments.size > 1 %}Commentaires{% else %}Commentaire{% endif %}</h3>
+
+    {% if comments.size > 0 %}
+
+        {% for comment in comments  %}
+        {% assign commentData = comment[1] %}
+            {% include comment.html comment=comment %}
+        {% endfor %}
+    {% else %}
+        <div>Il n'y a pas encore de commentaires sur cet article</div>
+    {% endif %}
+
+</section>

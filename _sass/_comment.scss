@@ -1,0 +1,16 @@
+.comment {
+  &--header {
+    color: $text-meta-color;
+  }
+}
+
+
+.comment-form-messages {
+  .info-error {
+    color: $base-color;
+  }
+}
+
+.comment-replies {
+  padding-left: 40px;
+}

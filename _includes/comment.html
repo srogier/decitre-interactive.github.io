@@ -1,0 +1,36 @@
+<article class="comment my-2">
+    <div class="comment--header">
+
+        {% assign urlGravatar = "https://www.gravatar.com/avatar?s=40" %}
+
+        {% if comment.email %}
+        {% assign urlGravatar = "https://www.gravatar.com/avatar/" | append: include.comment.email | append: ".png?s=40" %}
+        {% endif %}
+
+        <img
+                src="{{ urlGravatar }}"
+                alt="{{ include.comment.name }}"
+                class="rounded-circle"
+        />
+
+        Par
+        <a class="comment--username">{{ include.comment.name }}</a>
+        le
+        <span class="comment-date">{% include format_date.html date=include.comment.date %}</span>
+
+        <a href="#post-new-comment" class="comment-reply-to-link" data-replying-to-id="{{ include.comment._id }}">Répondre</a>
+    </div>
+
+    <div class="comment--content">
+        {{ include.comment.message | markdownify }}
+    </div>
+
+
+    <div class="comment-replies">
+        {% assign replies = site.data.comments[page.slug] | where:"replying_to",include.comment._id %}
+
+        {% for reply in replies %}
+            {% include comment.html comment=reply  %}
+        {% endfor %}
+    </div>
+</article>
