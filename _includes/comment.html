@@ -1,4 +1,4 @@
-<article class="comment my-2">
+<article class="comment my-2" id="comment--{{ include.comment._id }}">
     <div class="comment--header">
 
         {% assign urlGravatar = "https://www.gravatar.com/avatar?s=40" %}
@@ -9,7 +9,7 @@
 
         <img
                 src="{{ urlGravatar }}"
-                alt="{{ include.comment.name }}"
+                alt="{{ include.comment.name | escape }}"
                 class="rounded-circle"
         />
 
@@ -18,7 +18,15 @@
         le
         <span class="comment-date">{% include format_date.html date=include.comment.date %}</span>
 
-        <a rel="nofollow" href="#post-new-comment" class="comment-reply-to-link" data-replying-to-id="{{ include.comment._id }}">Répondre</a>
+        <a
+            rel="nofollow"
+            href="#post-new-comment"
+            class="comment-reply-to-link"
+            data-replying-to-id="{{ include.comment._id }}"
+            data-replying-to-author="{{ include.comment.name | escape }}"
+        >
+            Répondre
+        </a>
     </div>
 
     <div class="comment--content">
