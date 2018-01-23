@@ -1,12 +1,26 @@
-$(document).ready(function(){
+$(document).ready(function() {
     var commentForm = $("#post-new-comment");
+    var replyToBlock = $("#post-new-comment-message-reply-to");
+    var replyingToInput = $('input[name="fields[replying_to]"]', commentForm);
+
     $(document).on('click', '.comment-reply-to-link', function() {
-        $('input[name="fields[replying_to]"]', commentForm).val($(this).data('replying-to-id'));
+        var commentId = $(this).data('replying-to-id');
+        var commentAuthor = $(this).data('replying-to-author');
+
+        replyingToInput.val(commentId);
+        $('.post-new-comment-message-reply-to--author', replyToBlock).html(commentAuthor);
+        $('.post-new-comment-message-reply-to--id', replyToBlock).attr('href', '#comment--' + commentId);
+        replyToBlock.show();
 
         $.scrollTo(commentForm, {
             duration: 500,
             offset: -50
         });
+    });
+
+    $(document).on('click', '.post-new-comment-message-reply-to--clear', function() {
+        replyingToInput.val('');
+        replyToBlock.hide();
     });
 
 
