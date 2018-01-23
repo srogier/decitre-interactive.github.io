@@ -18,7 +18,8 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on('click', '.post-new-comment-message-reply-to--clear', function() {
+    $(document).on('click', '.post-new-comment-message-reply-to--clear', function(event) {
+        event.preventDefault();
         replyingToInput.val('');
         replyToBlock.hide();
     });
