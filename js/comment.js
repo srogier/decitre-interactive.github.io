@@ -18,6 +18,11 @@ $(document).ready(function() {
         });
     });
 
+    $(document).on('click', '.post-new-comment-message-reply-to--clear', function() {
+        replyingToInput.val('');
+        replyToBlock.hide();
+    });
+
 
     commentForm.on('submit', function (event) {
         var $form = $(this);
