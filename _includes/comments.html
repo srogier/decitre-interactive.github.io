@@ -18,12 +18,16 @@
         </div>
 
         <div class="form-group">
-            <label for="comment-email">Votre adresse email <small class="text-muted">(facultatif)</small> </label>
+            <label for="comment-email">Votre adresse email
+                <small class="text-muted">(facultative, utilisée pour <a href="https://gravatar.com">gravatar</a> et stockée hashée avec md5)</small>
+            </label>
             <input name="fields[email]" type="email" class="form-control" id="comment-email">
         </div>
 
         <div class="form-group">
-            <label for="comment-message">Votre message</label>
+            <label for="comment-message">Votre message
+                <small  class="text-muted">(le format <a href="https://kramdown.gettalong.org/quickref.html#quick-reference">Markdown</a> est autorisé)</small>
+            </label>
             <textarea name="fields[message]" class="form-control" id="comment-message" rows="10"  required="required"></textarea>
         </div>
 
