@@ -34,6 +34,11 @@ layout: default
         {{ content }}
     </article>
 
+
+    <div class="post--fork-fix">
+        Si vous trouvez une typo, n'hésitez pas <a href="http://github.com/{{ site.comment_repository }}/edit/{{ site.git_branch }}/_posts/{{ page.url | remove_first:'/' | replace_first:'/','-' | replace_first:'/','-' |replace_first:'/','-' | remove:'/' | remove: '.html' }}.md">à cloner et modifier le fichier</a>. Merci d'avance :)
+    </div>
+
 </article>
 
 <hr class="my-5" />
