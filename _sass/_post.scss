@@ -6,6 +6,13 @@
     color: $text-meta-color;
   }
 
+  &--fork-fix {
+    padding: 1rem;
+    background-color: $gray-color;
+    color: $gray-color-darker;
+    border-left: $base-color-dark 3px solid;
+  }
+
   pre, blockquote {
     padding: 1rem;
     background-color: $gray-color;
