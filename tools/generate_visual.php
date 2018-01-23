@@ -58,6 +58,8 @@ $outputImage = <<<HTML
         data-src="{{ '/%ratio_1%' | prepend: site.baseurl  }}" 
         data-srcset="{{ '/%ratio_1%' | prepend: site.baseurl  }} 1x, {{ '/%ratio_2%' | prepend: site.baseurl  }} 2x" 
     />
+    <noscript><img src="{{ '/%ratio_1%' | prepend: site.baseurl  }}" /></noscript>
+
     <figcaption>Légende à remplir</figcaption>
 </figure>
 <!--- fin -->
