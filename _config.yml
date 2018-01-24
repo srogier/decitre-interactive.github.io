@@ -4,7 +4,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Le blog des équipes techniques de Decitre
 baseurl: "/decitre-interactive.github.io"
 url: "https://srogier.github.io/decitre-interactive.github.io/"
-twitter_username: Decitre
+twitter_username: DecitreTech
 github_username: Decitre-Interactive
 
 comment_repository: srogier/decitre-interactive.github.io
