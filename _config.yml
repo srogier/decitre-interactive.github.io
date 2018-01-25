@@ -3,7 +3,7 @@ email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Le blog des équipes techniques de Decitre
 baseurl: "/decitre-interactive.github.io"
-url: "https://srogier.github.io/decitre-interactive.github.io/"
+url: "https://srogier.github.io/"
 twitter_username: DecitreTech
 github_username: Decitre-Interactive
 
